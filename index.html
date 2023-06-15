@@ -1,0 +1,80 @@
+<!doctype html>
+<html>
+<head>
+	<title>Zombie</title>
+	<style>
+		body {
+			font-family: Georgia;
+			background: #660000;
+		}
+		#canvas_div {
+			margin: 0 auto;
+			width: 600px;
+		}
+		#canvas {
+			width: 600px;
+			height: 600px;
+			outline: 2px solid black;
+		}
+		#container {
+			display: grid;
+			grid-template-columns: 25% 75%;
+		}
+		#control_panel {
+			background: #708090;
+			outline: 2px solid black;
+			padding: 16px;
+		}
+		#control_panel p {
+			margin: 0;
+		}
+	</style>
+</head>
+
+<body>
+	<div id="container">
+		<div id="control_panel">
+			<p>Humans: <span id="humans"></span></p>
+			<p>Zombies: <span id="zombies"></span></p>
+			<p>Doctors: <span id="doctors"></span></p>
+			<p>Immune: <span id="immune"></span></p>
+			<p>Dead: <span id="dead"></span></p>
+			<hr>
+			<label for="humanKillZombie">Human Kill Zombie</label><br>
+			<input type="range" min="0" max="1" value="0.5" step="0.01" class="slider" id="humanKillZombie"><br>
+
+			<label for="humanBecomeDoctor">Human Become Doctor</label><br>
+			<input type="range" min="0" max="0.005" value="0.0015" step="0.0001" class="slider" id="humanBecomeDoctor"><br>
+
+			<label for="immuneKillZombie">Immune Kill Zombie</label><br>
+			<input type="range" min="0" max="1" value="0.5" step="0.01" class="slider" id="immuneKillZombie"><br>
+
+			<label for="immuneBecomeDoctor">Immune Become Doctor</label><br>
+			<input type="range" min="0" max="0.005" value="0.0015" step="0.0001" class="slider" id="immuneBecomeDoctor"><br>
+
+			<label for="doctorImmunizeHuman">Doctor Immunize Human</label><br>
+			<input type="range" min="0" max="1" value="0.5" step="0.01" class="slider" id="doctorImmunizeHuman"><br>
+
+			<label for="doctorImmunizeZombie">Doctor Immunize Zombie</label><br>
+			<input type="range" min="0" max="1" value="0.1" step="0.01" class="slider" id="doctorImmunizeZombie"><br>
+
+			<label for="doctorKillZombie">Doctor Kill Zombie</label><br>
+			<input type="range" min="0" max="1" value="0.4" step="0.01" class="slider" id="doctorKillZombie"><br>
+
+			<label for="zombieInfectHuman">Zombie Infect Human</label><br>
+			<input type="range" min="0" max="1" value="0.425" step="0.01" class="slider" id="zombieInfectHuman"><br>
+
+			<label for="zombieKillImmune">Zombie Kill Immune</label><br>
+			<input type="range" min="0" max="1" value="0.5" step="0.01" class="slider" id="zombieKillImmune"><br>
+
+			<label for="zombieKillDoctor">Zombie Kill Doctor</label><br>
+			<input type="range" min="0" max="1" value="0.5" step="0.01" class="slider" id="zombieKillDoctor"><br>
+
+			<button onclick="reset_probabilities()">Reset Probabilities</button>
+			<button onclick="reset()">Reset Game</button>
+		</div>
+		<div id="canvas_div"><canvas id="canvas" width="600px" height="600px"></canvas></div>
+	</div>
+	<script src="script.js"></script>
+</body>
+</html>
