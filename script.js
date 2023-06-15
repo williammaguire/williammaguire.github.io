@@ -208,7 +208,7 @@ function interact(x,y,x2,y2){
 
 }
 
-var game_loop = setInterval(function(){
+function game_cycle(){
     for(let i=0;i<=31;++i){
         for(let j=0;j<=31;++j){
             interact(i,j, i+1,j+1);
@@ -257,5 +257,15 @@ var game_loop = setInterval(function(){
     for(let key in probabilities){
         probabilities[key] = document.getElementById(key).value;
     }
+}
 
+var game_loop = setInterval(function(){
+    game_cycle();
 }, 100);
+
+function setSpeed(){
+    clearInterval(game_loop);
+    game_loop = setInterval(function(){
+        game_cycle();
+    }, document.getElementById("gameSpeed").value);
+}
